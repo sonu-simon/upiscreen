@@ -9,10 +9,10 @@ List<CameraDescription> cameras = [];
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  http.get(Uri.parse('https://fakeface.rest/face/json')).then((response) {
+  await http.get(Uri.parse('https://fakeface.rest/face/json')).then((response) {
     var jsonDecoded = jsonDecode(response.body);
     print(jsonDecoded['image_url']);
-    image = Image.network(jsonDecoded['image_url']);
+    imageURL = jsonDecoded['image_url'];
   });
   cameras = await availableCameras();
   runApp(MyApp());

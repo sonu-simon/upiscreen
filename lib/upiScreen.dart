@@ -2,7 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:findmind_upiscreen/main.dart';
 import 'package:flutter/material.dart';
 
-late Image image;
+String? imageURL;
 
 class UpiScreen extends StatefulWidget {
   const UpiScreen({Key? key}) : super(key: key);
@@ -175,13 +175,15 @@ class _UpiScreenState extends State<UpiScreen> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: ListTile(
-                                  title: Text('Name'),
-                                  subtitle: Text('XXXXX XXXXX'),
-                                  leading: CircleAvatar(),
-                                ),
-                              )
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: ListTile(
+                                    title: Text('Name'),
+                                    subtitle: Text('XXXXX XXXXX'),
+                                    leading: CircleAvatar(
+                                      backgroundColor: Colors.grey[300],
+                                      foregroundImage: NetworkImage(imageURL!),
+                                    ),
+                                  ))
                             ],
                           ),
                         )
